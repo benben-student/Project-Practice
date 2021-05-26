@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>KeyboardNet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <header></header>
+    <main >
+        <div class="wrapper" id="mainFather"></div>
+    </main>
+    <footer></footer>
+    <script>
+        
+        // 1.初始化数据
+        var hashInit = init()
+        var keys = hashInit['keys']
+        var hash = hashInit['hash']
+        
+        // 2.生成键盘
+        
+        for (var index =0;index<keys['length'];index++) {
+            
+            var div = divMaker()
+
+            var row = keys[index]
+            
+            //遍历keys，生成kbd标签
+            for (var index2 = 0;index2 < row.length;index2++) {
+
+                var img = imgMaker(hash[row[index2]])
+
+                var span = spanMaker(row[index2])
+
+                var button = buttonMaker(row[index2])
+
+                var kbd = kbdMaker()
+
+                div.append(kbd)
+                
+            }
+        }
+
+        // 3.监听键盘
+        listenUser()
+        function listenUser(){
+            document.onkeypress = function(keyWord) {
+                // 得知用户按下的是哪个键
+                var key = keyWord['key']
+                //得到用户所获得的哪个地址
+                var website = hash[key]
+                // 把当前网站的地址变为新的网站地址
+                // location.href = "http://" + website
+                //在新窗口打开网站地址
+                window.open("http://" + website,'_blank')
+            }
+        }
+
+
+        //工具函数
+
+        function init(){
+            var keys = {
+                0: ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
+                1: ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+                2: ['Z', 'X', 'C', 'V', 'B', 'N', 'M'],
+                length: 3,
+            }
+            var hash = {
+                q: 'qq.com',
+                w: 'weibo.com',
+                z: 'zhihu.com',
+                n: 'ngo.com',
+                m: 'www.mcdonalds.com'
+            }
+            var hashInLocalStorage = getLocalStorage('hashValue')
+            if (hashInLocalStorage) {
+                hash = hashInLocalStorage
+            }
+            return {
+                keys : keys,
+                hash : hash
+            }
+        }
+
+        function getLocalStorage(name) {
+                return JSON.parse(localStorage.getItem(name) || 'null')
+            }
+
+        function tag(name,attrs){
+            var element = document.createElement(name)
+            for (var key in attrs) {
+                element[key] = attrs[key]
+            }
+            return element
+        }
+
+        function spanMaker(num) {
+            var span = tag('span',{className:'text'})
+            var rowText = num
+            span.textContent = rowText
+            return span
+        }
+        function imgMaker(src){
+            var img = tag('img')
+                if (src) {
+                    img.src = 'http://' + src + '/favicon.ico'
+                }else {
+                        img.src = '//i.loli.net/2018/08/13/5b7119df79c1a.png'
+                }
+                img.onerror = function(xxx){
+                    xxx.target.src = '//i.loli.net/2018/08/13/5b7119df79c1a.png'
+                }
+            return img
+        }
+        function buttonMaker(name){
+            var buttonCre = tag('button',{textContent:'Edit'})
+            buttonCre.id = name
+            buttonCre.onclick = function (keyWord) {
+                var key = keyWord.target.id
+                var img2 = keyWord.target.previousSibling
+                img2.src = 'http://' + hash[key] + '/favicon.ico'
+                x = prompt('give me a website')
+                hash[key] = x
+                img2.onerror = function (xxx) {
+                    xxx.target.src = '//i.loli.net/2018/08/13/5b7119df79c1a.png'
+                }
+                //使用localStorage存储
+                localStorage.setItem('hashValue', JSON.stringify(hash))
+            }
+            return buttonCre
+        }
+
+        function kbdMaker(){
+            var kbdCreate = tag('kbd',{className:'key'})
+                // var span = tag('span',{className:'text'})
+                var rowText = row[index2]
+                // span.textContent = rowText
+                //获取kbd标签内容
+                kbdCreate.appendChild(span)
+
+                kbdCreate.append(img)
+
+                kbdCreate.append(button)
+
+            return kbdCreate
+        }
+        function divMaker(){
+            var divCreate = tag('div',{className:'row'})
+            mainFather.append(divCreate)
+            return divCreate
+        }
+    </script>
+</body>
+</html>

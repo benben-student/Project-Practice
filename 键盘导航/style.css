@@ -1,35 +1,78 @@
-.top {
-    margin-top: 100px;
-    min-width: 960px;
-}
-
+*{margin: 0;padding: 0}
+a{text-decoration: none;}
 body {
+    height: 100vh;
+    background: #c5c5c5 url(./img/wallhaven.png) no-repeat center center ;
+    background-size: cover;
+}
+main {
+    display: flex;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
-
-ul {
-    height: 40px;
-}
-
-li {
-    color: black;
-    background-color: white;
-    margin-right: 10px;
-    list-style: none;
+kbd{
+    border: 1px solid red;
+    width: 4em;
+    height: 4em;
     display: inline-block;
-    font-size: 20px;
-    border: slategray 1px solid;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    color: #999;
-    border-radius: 5px;
-    box-shadow: inset 0 0 2em rgb(0 0 0 / 5%), 0 3px 0 #ddd, 0 3px 2px rgb(0 0 0 / 50%);
+    vertical-align: top;
+    position: relative;
+    /* transition: all 10s; */
 }
-
-li:hover {
-    box-shadow: inset 0 0 2em rgb(0 0 0 / 8%), 0 0 2px rgb(0 0 0 / 50%);
-    transform: translateX(2px) .3s;
-    border-top: 4px;
+kbd button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: none;
+    /* font-size: 2px; */
+}
+kbd:hover button{
+    display: inline-block;
+}
+main {
+    text-align: center;
+}
+#mainFather {
+    display: inline-block;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+}
+#mainFather div:nth-child(2){
+    margin-left: 1em;
+}
+#mainFather div:nth-child(3){
+    margin-left: 2em;
+}
+.key {
+    position: relative;
+    width: 50px;
+    height: 40px;
+    background: linear-gradient(to bottom,#292929 0%,#111111 100%);
+    border: 1px solid #373737;
+    color: #c5c5c5;
+    border-radius: 6px;
+    box-shadow: 0 0 0 1px #1a1b1c,0 0 0 2px #1f2020,0 3px 0 2px #080808;
+    font-size: 16px;
+    font-family: Helvetica;
+}
+.row {
+    margin: 20px;
+}
+.row .key {
+    margin: 0 10px;
+}
+.key img {
+    height: 16px;
+    width: 14px;
+    position: absolute;
+    left: 4px;
+    bottom: 2px;
+}
+.key .text {
+    position: absolute;
+    left:4px;
+    top: 2px;
 }
