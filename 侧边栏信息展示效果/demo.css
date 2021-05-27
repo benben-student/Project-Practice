@@ -8,6 +8,7 @@ ul{
     position: fixed;
     padding-top: 200px;
     min-height: 100%;
+    z-index: 100;
 }
 .item{
     font-size: 12px;
@@ -15,7 +16,7 @@ ul{
     text-align: center;
     margin-top: 5px;
 }
-#closerBar{
+#closeBar{
     position: absolute;
     bottom: 30px;
     width: 35px;
@@ -26,4 +27,13 @@ ul{
     width: 200px;
     position: fixed;
     min-height: 100%;
+    background-color: #e1e1e1;
+    border: 1px solid black;
+    z-index: 99;
+    opacity: 0;
+}
+.nav-con-close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
 }
