@@ -38,6 +38,8 @@
     };
     Sidebar.prototype.close = function () {
         console.log("关闭Sidebar");
+        this.el.className="sidebar-move-left"
+        this.closeBarEl.className="closeBar-move-right"
         this.state = "closed";
     };
     Sidebar.prototype.open = function () {
