@@ -11,7 +11,7 @@
         for (var i = 0; i < this.menuList.length; i++) {
             this.menuList[i].addEventListener("click", function (e) {
                 var menuContentEl = document.getElementById(e.currentTarget.id + "-content");
-                if (self.state == "allClosed") {
+                if (self.state === "allClosed") {
                     console.log("打开" + menuContentEl.id);
                     menuContentEl.style.top="0";
                     menuContentEl.style.left="-85px";
