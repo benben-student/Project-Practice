@@ -11,12 +11,20 @@
         for (var i = 0; i < this.menuList.length; i++) {
             this.menuList[i].addEventListener("click", function (e) {
                 var menuContentEl = document.getElementById(e.currentTarget.id + "-content");
-                if (self.state === "allClosed") {
+                if (self.state == "allClosed") {
                     console.log("打开" + menuContentEl.id);
+                    menuContentEl.style.top="0";
+                    menuContentEl.style.left="-85px";
+                    menuContentEl.className="nav-content";
+                    menuContentEl.classList.add("menuContent-move-right");
                     self.state = "hasOpened";
                     self.currentOpendMenuContent = menuContentEl;
                 } else {
                     console.log("关闭" + self.currentOpendMenuContent.id);
+                    self.currentOpendMenuContent.className="nav-content";
+                    self.currentOpendMenuContent.top="0";
+                    self.currentOpendMenuContent.left="35px";
+                    self.currentOpendMenuContent.classList.add("menuContent-move-left")
                     console.log("打开" + menuContentEl.id);
                     self.state = "hasOpened";
                     self.currentOpendMenuContent = menuContentEl;
@@ -44,10 +52,14 @@
     };
     Sidebar.prototype.open = function () {
         console.log("打开sidebar");
-        this.state = "opend";
+        this.el.style.left="-120px";
+        this.el.className="sidebar-move-right";
+        this.closeBarEl.style.left="160px";
+        this.closeBarEl="closeBar-move-left";
+        this.state = "opened";
     };
     Sidebar.prototype.triggerSwitch = function () {
-        if (this.state === "opend") {
+        if (this.state === "opened") {
             this.close();
         } else {
             this.open();

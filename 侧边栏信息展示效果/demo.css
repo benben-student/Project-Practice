@@ -89,3 +89,86 @@ ul{
         transform:  translateX(160px),rotate(405deg),scale(1.5);
     }
 }
+.sidebar-move-right{
+    -webkit-animation-name: smr;
+    animation-name: smr;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwords;
+}
+@keyframes smr{
+    from{
+
+    }
+    to{
+        -webkit-transform: translateX(120px);
+        transform: translateX(120px);
+    }
+}
+@keyframes smr{
+    from{
+
+    }
+    to{
+        -webkit-transform: translateX(120px);
+        transform: translateX(120px);
+    }
+}
+.closeBar-move-left{
+    -webkit-animation-name: cml;
+    animation-name: cml;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwords;
+}
+@keyframes cml{
+    from{
+        -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    }
+    to{
+          -webkit-transform: translateX(-160px) scale(1) rotate(-405deg);
+     transform: translateX(-160px) scale(1) rotate(-405deg);
+    }
+}
+.menuContent-move-right{
+    -webkit-animation-name: cml;
+    animation-name: cml;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwords;
+}
+@keyframes mmr{
+    from{
+         opacity: 0;
+    }
+    to{
+         opacity: 1;
+         -webkit-transform: translateX(120px);
+         transform: translateX(120px);
+    }
+}
+.menuContent-move-left{
+    -webkit-animation-name: mml;
+    animation-name: mml;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwords;
+}@keyframes mml{
+    from{
+       opacity: 1;
+    }
+    to{
+      opacity: 0;
+      -webkit-transform:translateX(-120px);
+      transform: translateX(-120px);
+    }
+}
