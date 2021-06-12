@@ -1,3 +1,3 @@
-function $(id){
-    return document.getElementsByTagName(id);
+function $(Id){
+    return document.getElementsByName(Id);
 }
