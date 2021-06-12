@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .loading{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background: #fff;
+        }
+        .loading .pic{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            font-size: 30px;
+            text-align: center;
+            line-height: 100px;
+        }
+        .loading .pic span{
+            display: block;
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border-radius: 50%;
+            box-shadow: 0 3px 0 #666;
+            -webkit-animation: rotate 1s infinite linear;
+            animation: rotate 1s infinite linear;
+        }
+        @-webkit-keyframes rotate{
+            0%{-webkit-transform: rotate(0deg);}
+            100%{-webkit-transform: rotate(360deg);}
+        }
+        @keyframes rotate{
+            0%{transform: rotate(0deg);}
+            100%{transform: rotate(360deg);}
+        }
+    </style>
+    <script src="demo1.js"></script>
+    <script>
+        $(function(){
+            var img=$("img");
+            var num=0;
+            img.each(function(i){
+                var oImg=new Image();
+                oImg.onload=function(){
+                    oImg.onload=null;
+                    num++;
+                    $(".loading b").html(parseInt(num/$("img").size()*100)+"%");
+                    if(num>=i){
+                        $(".loading").fadeOut();
+                    }
+                }
+                oImg.src=img[i].src;
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="loading">
+          <div class="pic">
+              <span></span>
+              <b>0%</b>
+          </div>
+    </div>
+    <img src="https://img2.baidu.com/it/u=3859417927,1640776349&fm=11&fmt=auto&gp=0.jpg" alt="">
+    <img src="https://img1.baidu.com/it/u=2594671789,2155354930&fm=11&fmt=auto&gp=0.jpg" alt="">
+    <img src="https://img0.baidu.com/it/u=1904359974,2894644924&fm=11&fmt=auto&gp=0.jpg" alt="">
+    <img src="https://img2.baidu.com/it/u=507575223,907330772&fm=26&fmt=auto&gp=0.jpg" alt="">
+    <img src="https://img2.baidu.com/it/u=4262576165,1283841097&fm=11&fmt=auto&gp=0.jpg" alt="">
+    <img src="https://pics7.baidu.com/feed/4e4a20a4462309f708e7a76d15dff2f5d6cad619.jpeg?token=df90351e06d7cbc7f3db513c4ad25980" alt="">
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.improve-yourmemory.com%2Fpic%2F461e83432fe743db486a9c5964e97672-2.jpg&refer=http%3A%2F%2Fimg.improve-yourmemory.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626088239&t=39d33bd724d0074258d821cf2230ef3e" alt="">
+    <img src="https://pics0.baidu.com/feed/b2de9c82d158ccbf74cca51577094238b0354180.jpeg?token=fe5a4fe6d9b1a1ed17119d6699d06bca" alt="">
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fc1cb0016ce599fff96fcaacd3e01452cffc3c8c1a066c-3qtAwO_fw236&refer=http%3A%2F%2Fhbimg.b0.upaiyun.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626088239&t=5e8dd02e36de7b55a70c7c1f6590e45d" alt="">
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.improve-yourmemory.com%2Fpic%2F8daa0e377da5086dbc7a52e23287c3d8-0.png&refer=http%3A%2F%2Fimg.improve-yourmemory.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626088239&t=bbe515946806239fd3ba860f3fda951b" alt="">
+    <img src="https://pics1.baidu.com/feed/4afbfbedab64034f8d0d6e9ec612873708551dba.jpeg?token=dcebbf6ab5191b399d2e25ff233edf7f" alt="">
+    <img src="https://pics0.baidu.com/feed/34fae6cd7b899e515af7f5a381d00a35c9950d8e.jpeg?token=c84185f61011300683ca37b1c91f348f" alt="">
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.improve-yourmemory.com%2Fpic%2F68fca5573093b8d18b95e7662956b129-4.png&refer=http%3A%2F%2Fimg.improve-yourmemory.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626088239&t=255669f0406f3a7f32c4dcbf8336f27c" alt="">
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fn.sinaimg.cn%2Fsinakd10109%2F400%2Fw800h1200%2F20200703%2F8ed7-ivwfwmn8539730.jpg&refer=http%3A%2F%2Fn.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626088239&t=24430e89f3d422a63baafb16359eb95f" alt="">
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Foptbbs.oss-cn-hangzhou.aliyuncs.com%2Fsjs%2F2212325-5a3eac274eadc56243797f3f4f83e167.png&refer=http%3A%2F%2Foptbbs.oss-cn-hangzhou.aliyuncs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626088239&t=0734d4f5f01c49e48c1922af462e35fc" alt="">
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201607%2F13%2F20160713111658_y8Cix.thumb.700_0.png&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626088380&t=dafdfa8389aad32f81f1f7689aceb6b0" alt="">
+    <img src="https://pics0.baidu.com/feed/5366d0160924ab183a3a1df55e2b18cb7a890b18.jpeg?token=cb96dcf4bf49dd44fe1ea515daa09b16" alt="">
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.improve-yourmemory.com%2Fpic%2Ffc1de5d214e7d27f6d544db47f71c830-0.jpg&refer=http%3A%2F%2Fimg.improve-yourmemory.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626088380&t=4ae9746b2802ba7aad922ad82ce13367" alt="">
+    <img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fpic%2F3%2F85%2F21961185531.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1626088380&t=b075fe33b55660eed8e91230994d3e53" alt="">
+</body>
+</html>
