@@ -1,0 +1,15 @@
+img{
+    width: 135px;
+    height: 60px;
+}
+#cartTable{
+    width: 1220px;
+    height: 200px;
+    border: 1px red solid;
+}
+#foot{
+    position: relative;
+    width: 1220x;
+    height: 50px;
+    float: left;
+}
